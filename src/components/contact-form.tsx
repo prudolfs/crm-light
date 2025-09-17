@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import { useForm, SubmitHandler, Controller } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
+import { motion } from 'motion/react'
 import { Send, Loader2 } from 'lucide-react'
 import { isValidPhoneNumber } from 'react-phone-number-input'
 import type { ContactInputs } from '@/types/contact'
@@ -53,7 +54,17 @@ function ContactForm() {
   }
 
   return (
-    <div className="rounded-2xl border border-slate-700/50 bg-slate-800/50 p-4 backdrop-blur-xs lg:p-8">
+    <motion.div
+      initial={{ opacity: 0.25, scaleX: 0.75, scaleY: 0.75 }}
+      whileInView={{ opacity: 1, scaleX: 1, scaleY: 1 }}
+      transition={{
+        opacity: { duration: 1 },
+        scaleX: { type: 'spring', stiffness: 200, damping: 15 },
+        scaleY: { type: 'spring', stiffness: 200, damping: 15 },
+      }}
+      viewport={{ once: true }}
+      className="rounded-2xl border border-slate-700/50 bg-slate-800/50 p-4 backdrop-blur-xs lg:p-8"
+    >
       <h2 className="mb-6 text-2xl font-bold">Start Your Project</h2>
       <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
         <div className="grid gap-4 md:grid-cols-2">
@@ -174,6 +185,12 @@ function ContactForm() {
                       Micro House
                     </SelectItem>
                     <SelectItem
+                      value="tiny-house"
+                      className="text-base text-white! hover:bg-slate-700 focus:bg-slate-700"
+                    >
+                      Tiny House
+                    </SelectItem>
+                    <SelectItem
                       value="custom-project"
                       className="text-base text-white! hover:bg-slate-700 focus:bg-slate-700"
                     >
@@ -231,7 +248,7 @@ function ContactForm() {
           <p className="text-sm text-red-400">{submitError}</p>
         </div>
       </form>
-    </div>
+    </motion.div>
   )
 }
 

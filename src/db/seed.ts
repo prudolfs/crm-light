@@ -19,7 +19,7 @@ async function main() {
           generatedDigitsNumbers: [7, 7, 10],
         }),
         service: f.valuesFromArray({
-          values: ['sauna', 'micro-house', 'custom-project'],
+          values: ['sauna', 'micro-house', 'tiny-house', 'custom-project'],
         }),
         status: f.valuesFromArray({
           values: ['new', 'todo', 'inprogress', 'completed'],

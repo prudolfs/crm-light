@@ -27,12 +27,12 @@ export const ContactSchema = z.object({
         message: 'Phone number required',
       },
     ),
-  service: z.enum(['sauna', 'micro-house', 'custom-project']),
+  service: z.enum(['sauna', 'micro-house', 'tiny-house', 'custom-project']),
   message: z
     .string()
     .trim()
     .min(16, 'Project Details is required')
-    .max(256, 'Project Details must be at most 256 characters'),
+    .max(1024, 'Project Details must be at most 1024 characters'),
 })
 
 export const ContactEditSchema = ContactSchema.extend({

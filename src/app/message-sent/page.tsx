@@ -1,6 +1,6 @@
-import { ContactForm } from '@/components/contact-form'
+import { MessageSent as MessageSentPopup } from '@/components/message-sent'
 
-export default function Home() {
+export default function MessageSent() {
   return (
     <section
       id="contact"
@@ -12,11 +12,14 @@ export default function Home() {
             Let's Build Together
           </h1>
           <p className="mx-auto max-w-3xl text-xl leading-relaxed text-gray-300">
-            Ready to start your journey? Our team is here to bring your vision
-            to life with uncompromising quality and craftsmanship.
+            We’ve received your message and our team will get back to you
+            shortly. In the meantime, thank you for considering us as your
+            partner in bringing ideas to life.
           </p>
         </div>
-        <ContactForm />
+      </div>
+      <div className="flex justify-center">
+        <MessageSentPopup />
       </div>
     </section>
   )

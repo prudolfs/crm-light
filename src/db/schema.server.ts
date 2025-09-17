@@ -7,7 +7,7 @@ export const contactUs = sqliteTable('contact_us', {
   email: text('email').notNull(),
   phone: text('phone').notNull(),
   service: text('service', {
-    enum: ['sauna', 'micro-house', 'custom-project'],
+    enum: ['sauna', 'micro-house', 'tiny-house', 'custom-project'],
   }).notNull(),
   message: text('message').notNull(),
   status: text('status', { enum: ['new', 'todo', 'inprogress', 'completed'] })
