@@ -1,36 +1,135 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+![CRM Light](preview.gif)
 
-## Getting Started
+# CRM Light
 
-First, run the development server:
+A lightweight Customer Relationship Management system built with Next.js 15, demonstrating modern web development practices and clean architecture.
 
+## 🚀 Live Demo
+
+https://crm-light.vercel.app/
+
+## ✨ Features
+
+- **Contact Management**: Store and manage customer inquiries with detailed information
+- **Status Tracking**: Track contact status (new, todo, in progress, completed)
+- **Notes System**: Add and manage notes for each contact with real-time updates
+- **Service Categories**: Organize contacts by service type (sauna, micro-house, tiny-house, custom-project)
+- **Referral Tracking**: Track referral codes via URL parameters
+- **Responsive Design**: Mobile-first design with Tailwind CSS
+- **Real-time Updates**: Optimistic updates with React Query
+- **Database**: SQLite with Drizzle ORM for type-safe database operations
+
+## 🛠️ Tech Stack
+
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS v4
+- **Database**: SQLite with Drizzle ORM
+- **UI Components**: Shadcn/ui
+- **State Management**: TanStack Query (React Query)
+- **Animations**: Framer Motion
+- **Icons**: Lucide React
+- **Package Manager**: pnpm
+
+## 📦 Installation
+
+1. Clone the repository:
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone git@github.com:prudolfs/crm-light.git
+cd crm-light
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
+```bash
+pnpm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. Set up environment variables:
+```bash
+cp .env.example .env.local
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+4. Generate and run database migrations:
+```bash
+pnpm db:migrations
+```
 
-## Learn More
+5. Seed the database (optional):
+```bash
+pnpm db:seed
+```
 
-To learn more about Next.js, take a look at the following resources:
+6. Start the development server:
+```bash
+pnpm dev
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open [http://localhost:3000](http://localhost:3000) to view the application.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## 🗄️ Database Schema
 
-## Deploy on Vercel
+The application uses two main tables:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- **contact_us**: Stores customer contact information and inquiries
+- **notes**: Stores notes associated with each contact
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📝 Available Scripts
+
+- `pnpm dev` - Start development server with Turbopack
+- `pnpm build` - Build for production
+- `pnpm start` - Start production server
+- `pnpm db:migrations` - Generate database migrations
+- `pnpm db:seed` - Seed database with sample data
+- `pnpm db:reset` - Reset database
+- `pnpm format` - Format code with Prettier
+- `pnpm format:check` - Check code formatting
+
+## 🎯 Project Structure
+
+```
+src/
+├── app/                    # Next.js App Router pages
+├── components/             # Reusable UI components
+├── actions/               # Server actions
+├── db/                    # Database schema and utilities
+├── lib/                   # Utility functions
+└── utils/                 # Helper functions
+```
+
+## 🌟 Key Features Demonstrated
+
+- **Server Components**: Leveraging Next.js 15 server components for optimal performance
+- **Server Actions**: Type-safe server-side mutations
+- **Optimistic Updates**: Immediate UI feedback with React Query
+- **Form Handling**: Modern form patterns with validation
+- **Database Operations**: Type-safe queries with Drizzle ORM
+- **Responsive Design**: Mobile-first approach with Tailwind CSS
+- **Component Architecture**: Reusable, composable UI components
+
+## 🚀 Deployment
+
+The application can be deployed on any platform that supports Next.js:
+
+## 🤝 Contributing
+
+This is a portfolio project, but contributions are welcome! Please feel free to:
+
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
+
+## 📄 License
+
+This project is open source and available under the [MIT License](LICENSE).
+
+## 👨‍💻 Author
+
+**Rudolfs Pukitis**
+
+- LinkedIn: [Rudolfs Pukitis](https://www.linkedin.com/in/rudolfs-pukitis-33027a154/)
+- GitHub: [@prudolfs](https://github.com/prudolfs)
+
+---
+
+*This project was created as a demonstration of modern web development practices and serves as an example of clean architecture.*
