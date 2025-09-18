@@ -11,7 +11,9 @@ type Props = {
   searchParams?: Record<string, string | string[] | undefined>
 }
 
-export default async function EditContact({ params: { id } }: Props) {
+export default async function EditContact(props: Props) {
+  const params = await props.params
+  const id = params.id
   const contact = await getContact(id)
 
   if (!contact) {

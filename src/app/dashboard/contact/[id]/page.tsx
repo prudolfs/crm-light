@@ -24,7 +24,9 @@ type Props = {
   searchParams?: Record<string, string | string[] | undefined>
 }
 
-export default async function Contact({ params: { id } }: Props) {
+export default async function Contact(props: Props) {
+  const params = await props.params
+  const id = params.id
   const contact = await getContact(id)
 
   if (!contact) {
@@ -86,15 +88,15 @@ export default async function Contact({ params: { id } }: Props) {
                   </div>
                 </div>
 
-                {contact.referralCode && (
-                  <div className="flex items-center gap-3">
-                    <Code className="h-5 w-5 text-gray-500" />
-                    <div>
-                      <p className="text-sm text-gray-600">Referral Code</p>
-                      <p className="font-medium">{contact.referralCode}</p>
-                    </div>
+                <div className="flex items-center gap-3">
+                  <Code className="h-5 w-5 text-gray-500" />
+                  <div>
+                    <p className="text-sm text-gray-600">Referral Code</p>
+                    <p className="font-medium">
+                      {contact.referralCode || 'None'}
+                    </p>
                   </div>
-                )}
+                </div>
               </div>
             </CardContent>
           </Card>

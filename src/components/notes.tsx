@@ -130,7 +130,6 @@ function Notes({ contactId, initialNotes }: Props) {
             >
               <Send className="mr-2 h-4 w-4" />
               {addNoteMutation.isPending ? 'Adding...' : 'Add Note'}
-              Add Note
             </Button>
           </div>
         </form>

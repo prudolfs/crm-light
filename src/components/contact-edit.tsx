@@ -114,10 +114,7 @@ function ContactEdit({ contact }: { contact: ContactEntry }) {
             </div>
             <div className="space-y-2">
               <Label htmlFor="referralCode">Referral Code</Label>
-              <Input
-                id="referralCode"
-                {...register('referralCode', { required: true })}
-              />
+              <Input id="referralCode" {...register('referralCode')} />
               <div
                 className={`mt-2 flex ${clsx(!errors.referralCode && 'opacity-0')}`}
               >
@@ -143,12 +140,13 @@ function ContactEdit({ contact }: { contact: ContactEntry }) {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                   <Select value={value} onValueChange={onChange}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>
                       <SelectItem value="sauna">Sauna</SelectItem>
                       <SelectItem value="micro-house">Micro House</SelectItem>
+                      <SelectItem value="tiny-house">Tiny House</SelectItem>
                       <SelectItem value="custom-project">
                         Custom Project
                       </SelectItem>
@@ -164,7 +162,7 @@ function ContactEdit({ contact }: { contact: ContactEntry }) {
                 control={control}
                 render={({ field: { onChange, value } }) => (
                   <Select value={value} onValueChange={onChange}>
-                    <SelectTrigger>
+                    <SelectTrigger className="w-full">
                       <SelectValue />
                     </SelectTrigger>
                     <SelectContent>

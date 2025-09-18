@@ -67,11 +67,14 @@ export const authOptions = {
     signIn: '/login',
   },
   callbacks: {
-    async session({ 
-      session, 
-      token 
-    // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    }: { session: any; token: any }) {
+    async session({
+      session,
+      token,
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    }: {
+      session: any
+      token: any
+    }) {
       if (token) {
         session.user.id = token.sub
       }
