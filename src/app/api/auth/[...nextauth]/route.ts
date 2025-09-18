@@ -1,9 +1,8 @@
 import NextAuth from 'next-auth'
 import CredentialsProvider from 'next-auth/providers/credentials'
 // import bcrypt from 'bcryptjs'
-// import { getUserByEmail } from '@/lib/database' // You'll need to implement this
+// import { getUserByEmail } from '@/actions/login' // You'll need to implement this
 
-// Define types for user
 type User = {
   id: string
   name: string
@@ -24,20 +23,6 @@ export const authOptions = {
           return null
         }
 
-        const user: User = {
-          id: '1',
-          name: 'Rudolfs Pukitis',
-          email: 'pukitis.rudolfs@gmail.com',
-          hashedPassword: 'Tpb6euZ3NgseBCL8HqZ5',
-        }
-
-        if (
-          credentials.email !== user.email ||
-          credentials.password !== user.hashedPassword
-        ) {
-          return null
-        }
-
         // const user = (await getUserByEmail(credentials.email)) as User | null
 
         // if (!user) {
@@ -52,6 +37,20 @@ export const authOptions = {
         // if (!passwordMatch) {
         //   return null
         // }
+
+        const user: User = {
+          id: '1',
+          name: 'Admin',
+          email: process.env.ADMIN_EMAIL as string,
+          hashedPassword: process.env.ADMIN_PASSWORD as string,
+        }
+
+        if (
+          credentials.email !== user.email ||
+          credentials.password !== user.hashedPassword
+        ) {
+          return null
+        }
 
         return {
           id: user.id,
