@@ -6,7 +6,13 @@ A lightweight Customer Relationship Management system built with Next.js 15, dem
 
 ## 🚀 Live Demo
 
-https://crm-light.vercel.app/
+**Landing Page**: https://crm-light-phi.vercel.app  
+**Dashboard**: https://crm-light-phi.vercel.app/dashboard
+
+### Demo Credentials
+
+- **Email**: admin@crm-light.com
+- **Password**: MdoIdiWO10dmxpL3KveX
 
 ## ✨ Features
 
@@ -34,32 +40,56 @@ https://crm-light.vercel.app/
 ## 📦 Installation
 
 1. Clone the repository:
+
 ```bash
 git clone git@github.com:prudolfs/crm-light.git
 cd crm-light
 ```
 
 2. Install dependencies:
+
 ```bash
 pnpm install
 ```
 
 3. Set up environment variables:
+
 ```bash
 cp .env.example .env.local
 ```
 
+Edit `.env.local` with your configuration:
+
+```bash
+# NextAuth Configuration
+NEXTAUTH_URL="http://localhost:3000"
+NEXTAUTH_SECRET="your-nextauth-secret-here"
+
+# Admin Credentials (for demo purposes)
+ADMIN_EMAIL="admin@crm-light.com"
+ADMIN_PASSWORD="MdoIdiWO10dmxpL3KveX"
+
+# Database Configuration (Turso)
+TURSO_DATABASE_URL="your-turso-database-url"
+TURSO_AUTH_TOKEN="your-turso-auth-token"
+```
+
+**Note**: For production deployment, update `NEXTAUTH_URL` to your domain and generate a secure `NEXTAUTH_SECRET`.
+
 4. Generate and run database migrations:
+
 ```bash
 pnpm db:migrations
 ```
 
 5. Seed the database (optional):
+
 ```bash
 pnpm db:seed
 ```
 
 6. Start the development server:
+
 ```bash
 pnpm dev
 ```
@@ -132,4 +162,4 @@ This project is open source and available under the [MIT License](LICENSE).
 
 ---
 
-*This project was created as a demonstration of modern web development practices and serves as an example of clean architecture.*
+_This project was created as a demonstration of modern web development practices and serves as an example of clean architecture._

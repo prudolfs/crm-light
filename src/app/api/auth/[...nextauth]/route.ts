@@ -62,6 +62,7 @@ export const authOptions = {
   ],
   session: {
     strategy: 'jwt' as const,
+    maxAge: 30 * 24 * 60 * 60, // 30 days
   },
   pages: {
     signIn: '/login',
@@ -70,11 +71,12 @@ export const authOptions = {
     async session({
       session,
       token,
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      /* eslint-disable @typescript-eslint/no-explicit-any */
     }: {
       session: any
       token: any
     }) {
+      /* eslint-enable @typescript-eslint/no-explicit-any */
       if (token) {
         session.user.id = token.sub
       }

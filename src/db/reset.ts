@@ -1,15 +1,11 @@
-import Database from 'better-sqlite3'
-import path from 'path'
-import { drizzle } from 'drizzle-orm/better-sqlite3'
 import { reset } from 'drizzle-seed'
+import { drizzle } from 'drizzle-orm/libsql'
+import { client } from '@/db/config.server'
 import * as schema from '@/db/schema.server'
 
 async function main() {
-  const databaseDir = process.env.DATABASE_DIR || './db/data'
-  const databasePath = path.join(databaseDir, 'sqlite.db')
-  const sqlite = new Database(databasePath)
-  const db = drizzle(sqlite)
+  const db = drizzle(client)
   await reset(db, schema)
 }
 
-main()
+main().catch(console.error)
