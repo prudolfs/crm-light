@@ -1,7 +1,7 @@
 import Link from 'next/link'
 import { ArrowLeft, Save, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import ContactEdit from '@/components/ContactEdit'
+import { ContactEdit } from '@/components/contact-edit'
 import { getContact } from '@/actions/get-contact'
 
 type Props = {

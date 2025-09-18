@@ -9,13 +9,13 @@ import {
   MessageSquare,
   Calendar,
 } from 'lucide-react'
-import ContactDelete from '@/components/ContactDelete'
-import Notes from '@/components/Notes'
+import { formatDate } from '@/utils/format-date'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { getContact } from '@/actions/get-contact'
-import { StatusBadge, ServiceBadge } from '@/components/Badge'
-import { formatDate } from '@/utils/format-date'
+import { StatusBadge, ServiceBadge } from '@/components/badge'
+import { ContactDelete } from '@/components/contact-delete'
+import { Notes } from '@/components/notes'
 
 type Props = {
   params: {

@@ -3,11 +3,10 @@
 import { eq } from 'drizzle-orm'
 import { db } from '@/db/config.server'
 import { contactUs } from '@/db/schema.server'
-import { ContactEntry } from '@/types/contact'
-import { ContactSchema } from '@/lib/validation/contact'
+import { ContactEditValues, ContactEditSchema } from '@/lib/validation/contact'
 
-export async function updateContact(id: number, data: ContactEntry) {
-  const result = ContactSchema.safeParse(data)
+export async function updateContact(id: number, data: ContactEditValues) {
+  const result = ContactEditSchema.safeParse(data)
 
   if (!result.success) {
     const fields = result.error.flatten()

@@ -41,3 +41,4 @@ export const ContactEditSchema = ContactSchema.extend({
 })
 
 export type ContactFormValues = z.infer<typeof ContactSchema>
+export type ContactEditValues = z.infer<typeof ContactEditSchema>
